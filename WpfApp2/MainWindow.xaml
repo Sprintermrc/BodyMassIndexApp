@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Image Name="bodyImage" Margin="22,28,521,27" Source="pack://application:,,,/images/humanBodyDefault.png" Stretch="Fill"/>
+        <Label Content="Калькулятор Индекса Массы Тела (ИМТ) у взрослого человека " HorizontalAlignment="Left" Margin="265,10,0,0" VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left" Orientation="Vertical" VerticalAlignment="Top" RenderTransformOrigin="4.106,6.732" Margin="400, 150, 40, 40" >
+            <TextBox Name="weightIN" TextWrapping="Wrap" Text="" Width="120" VerticalAlignment="Top"/>
+            <TextBox Name="heightIN" TextWrapping="Wrap" Text="" Width="120"/>
+        </StackPanel>
+        <TextBlock Name="indexOUT" HorizontalAlignment="Left" Margin="593,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock Name="adviceOUT" HorizontalAlignment="Left" Margin="284,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="132" Width="396"/>
+        <TextBlock HorizontalAlignment="Left" Margin="291,152,0,0" TextWrapping="Wrap" Text="Введите свой вес:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="291,170,0,0" TextWrapping="Wrap" Text="Введите свой рост:" VerticalAlignment="Top" Height="19"/>
+        <Button Content="Вычислить ИМТ" HorizontalAlignment="Left" Margin="538,181,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+
+    </Grid>
+</Window>
