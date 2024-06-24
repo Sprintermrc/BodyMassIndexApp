@@ -5,19 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="800">
     <Grid>
-        <Image Name="bodyImage" Margin="22,28,521,27" Source="pack://application:,,,/images/humanBodyDefault.png" Stretch="Fill"/>
-        <Label Content="Калькулятор Индекса Массы Тела (ИМТ) у взрослого человека " HorizontalAlignment="Left" Margin="265,10,0,0" VerticalAlignment="Top"/>
-        <StackPanel HorizontalAlignment="Left" Orientation="Vertical" VerticalAlignment="Top" RenderTransformOrigin="4.106,6.732" Margin="400, 150, 40, 40" >
-            <TextBox Name="weightIN" TextWrapping="Wrap" Text="" Width="120" VerticalAlignment="Top"/>
+        <Image Name="bodyImage" Margin="22,28,521,240" Source="pack://application:,,,/images/humanBodyDefault.png"/>
+        <Label Content="Калькулятор Индекса Массы Тела (ИМТ) у взрослого человека + КБЖУ" HorizontalAlignment="Left" Margin="265,10,0,0" VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left" Orientation="Vertical" VerticalAlignment="Top" RenderTransformOrigin="4.106,6.732" Margin="361,90,0,0" >
             <TextBox Name="heightIN" TextWrapping="Wrap" Text="" Width="120"/>
+            <TextBox Name="weightIN" TextWrapping="Wrap" Text="" Width="120" VerticalAlignment="Top"/>
         </StackPanel>
-        <TextBlock Name="indexOUT" HorizontalAlignment="Left" Margin="593,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock Name="adviceOUT" HorizontalAlignment="Left" Margin="284,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="132" Width="396"/>
-        <TextBlock HorizontalAlignment="Left" Margin="291,152,0,0" TextWrapping="Wrap" Text="Введите свой вес:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="291,170,0,0" TextWrapping="Wrap" Text="Введите свой рост:" VerticalAlignment="Top" Height="19"/>
-        <Button Content="Вычислить ИМТ" HorizontalAlignment="Left" Margin="538,181,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-
+        <TextBlock Name="indexOUT" HorizontalAlignment="Left" Margin="599,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock Name="adviceOUT" HorizontalAlignment="Left" Margin="252,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="74" Width="307"/>
+        <TextBlock HorizontalAlignment="Left" Margin="252,92,0,0" TextWrapping="Wrap" Text="Введите свой рост:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="252,110,0,0" TextWrapping="Wrap" Text="Введите свой вес:" VerticalAlignment="Top" Height="19"/>
+        <Button Content="Вычислить ИМТ" HorizontalAlignment="Left" Margin="499,121,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <TextBox Name="ageIN" HorizontalAlignment="Left" Margin="361,261,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Введите свой возраст:" HorizontalAlignment="Left" Margin="224,257,0,0" VerticalAlignment="Top"/>
+        <Label Content="Выберите пол:" HorizontalAlignment="Left" Margin="554,255,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="genderIN" SelectionChanged="comboBox_SelectionChanged" HorizontalAlignment="Left" Margin="649,257,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Name="mgend" Content="Мужской"></ComboBoxItem>
+            <ComboBoxItem Name="fgend" Content="Женский"></ComboBoxItem>
+        </ComboBox>
+        <Button Name="btnBZUcalc" Content="Вычислить Норму БЖУ" HorizontalAlignment="Left" Margin="499,340,0,0" VerticalAlignment="Top" Click="btnBZUcalc_Click"/>
+        <TextBlock Name="bzuOut" HorizontalAlignment="Left" Margin="236,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="59" Width="170"/>
+        <ComboBox Name="activityIndexComboBox" HorizontalAlignment="Left" Margin="649,299,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Name="one_ActivityRange">
+                <TextBlock>1,2 –  минимальная активность (отсутствие физических нагрузок, <LineBreak></LineBreak>сидячая работа, минимум движения)</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="two_ActivityRange">
+                <TextBlock>1,375 – небольшая активность (легкие тренировки или прогулки, <LineBreak></LineBreak>небольшая дневная активность в течение дня)</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="three_ActivityRange">
+                <TextBlock>1,46 – средняя активность (тренировки 4-5 раз в неделю, <LineBreak></LineBreak>хорошая активность в течение дня)</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="four_ActivityRange">
+                <TextBlock>1,55 – активность выше среднего (интенсивные тренировки 5-6 раз в неделю, <LineBreak></LineBreak>хорошая активность в течение дня)</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="five_ActivityRange">
+                <TextBlock>64 – повышенная активность (ежедневные тренировки, <LineBreak></LineBreak>высокая дневная активность)</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="six_ActivityRange">
+                <TextBlock>1,72 – высокая активность (ежедневные ультра-интенсивные тренировки <LineBreak></LineBreak>и высокая дневная активность)</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="seven_ActivityRange">
+                <TextBlock>1,9 – очень высокая активность (обычно речь идет о спортсменах <LineBreak></LineBreak> в период соревновательной активности)</TextBlock>
+            </ComboBoxItem>
+        </ComboBox>
+        <Label Content="Выберите коэффициент Активности:" HorizontalAlignment="Left" Margin="433,297,0,0" VerticalAlignment="Top"/>
+        <Label Content="Расчет калорийности продукта на 100 грамм" HorizontalAlignment="Left" Margin="265,473,0,0" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Vertical" Margin="192,504,236,80" >
+            <StackPanel Orientation="Horizontal" Width="360" VerticalAlignment="Bottom">
+                <TextBlock TextWrapping="Wrap" Text="Белки" Width="120" Height="15"/>
+                <TextBlock TextWrapping="Wrap" Text="Жиры" Width="120" Height="15"/>
+                <TextBlock TextWrapping="Wrap" Text="Углеводы" Width="120" Height="15"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="360" Height="35">
+                <TextBox x:Name="prodKal_Belki" TextWrapping="Wrap" Text="" Width="120" Height="25"/>
+                <TextBox x:Name="prodKal_Ziri" TextWrapping="Wrap" Text="" Width="120" Height="25"/>
+                <TextBox x:Name="prodKal_Uglevodi" TextWrapping="Wrap" Text="" Width="120" Height="25"/>
+            </StackPanel>
+            <Button Content="Вычислить калорийность продукта" Click="Button_Click_1" Height="25"/>
+        </StackPanel>
+        <TextBlock Name="productKalOUT"  HorizontalAlignment="Left" Margin="594,527,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
     </Grid>
 </Window>
